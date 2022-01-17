@@ -1,0 +1,218 @@
+/*General Rules*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family: 'Space Mono', monospace;
+}
+/*HTML*/
+html{
+    font-size: 62.5%;
+}
+/*VARIABLES*/
+:root{
+    --Strongcyan: hsl(172, 67%, 45%);
+    --Verydarkcyan: hsl(183, 100%, 15%);
+    --Darkgrayishcyan1: hsl(186, 14%, 43%);
+    --Darkgrayishcyan2: hsl(184, 14%, 56%);
+    --Lightgrayishcyan1: hsl(185, 41%, 84%); 
+    --Lightgrayishcyan2: hsl(189, 41%, 97%);
+    --White: hsl(0, 0%, 100%);
+    --forminputs:2.4rem;
+}
+
+/*BODY*/
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--Lightgrayishcyan1);
+    display: grid;
+    place-content: center;
+    
+}
+
+/*INPUT*/
+input{
+    text-align: right;
+    border: none;
+    text-decoration: none;
+    outline: none;
+    background-color: transparent;
+    font-weight: 700;
+    cursor: pointer;
+    padding-right: 4px;
+}
+
+
+
+/*MAIN CONTAINER*/
+.main-container{
+    height: 80vh;
+    width: 60vw;
+    background-color: var(--White);
+    border-radius: 20px;
+}   
+
+/*CONTAINER LOGO*/
+.container-logo{
+    background-color: var(--Lightgrayishcyan1);
+    margin: 0 auto;
+    height: 30%;
+    width: 100%;
+    display: grid;
+    place-content: center;
+}
+
+/*CONTAINER INFORMATION*/
+
+.container-information{
+    display: flex;
+    height: 70%;
+    width: 100%;
+    padding: 40px;
+    
+    
+}
+
+/*CONTAINER INFORMATION LEFT*/
+.information-left{
+    width: 50%;
+    height: 100%;
+    padding-right: 20px;
+}
+
+/*CONTAINER INFORMATION LEFT TOP*/
+.information-left-top {
+    height: 20%;
+    
+}
+
+
+/*CONTAINER INFORMATION LEFT MIDDLE*/
+.information-left-middle{
+    height: 60%;
+}    
+
+.information-left-middle-grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+    height: 70%;
+    gap: 16px;
+    padding-top: 10px;
+}
+
+.information-left-middle-grid a {
+    background-color:var(--Verydarkcyan);
+    color:var(--White);
+    font-weight: 700;
+    display: grid;
+    place-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.8rem;
+}
+
+.information-left-middle-grid a:hover {
+   background-color: var(--Lightgrayishcyan1);
+}
+.information-left-middle-grid input{
+    width: 90%;
+    text-align: center;
+    font-weight: 700;
+}
+
+.information-left-middle-grid input:hover{
+    border: 1px solid var(--Verydarkcyan);
+}
+
+
+/*CONTAINER INFORMATION LEFT BOTTON*/
+.information-left-botton {
+    height: 20%;
+}
+
+/*CONTAINER INFORMATION RIGHT*/
+.information-rigth{
+    background-color: var(--Verydarkcyan);
+    width: 50%;
+    border-radius: 15px;
+    padding: 40px;
+    color: var(--White);
+}
+
+/*CONTAINER INFORMATION RIGHT TOP*/
+
+.information-right-top{
+    height: 50%;
+}
+
+.information-text-separation span p:nth-child(1)
+{
+    font-weight: 700;
+}
+
+.information-text-separation span p:nth-child(2)
+{
+    font-weight: 400;
+    color: var(--Lightgrayishcyan1);
+}
+
+.information-right-top .information-text-separation label
+{
+    font-size: var(--forminputs);
+    color: var(--Strongcyan);
+}
+
+/*CONTAINER INFORMATION RIGHT BOTTON*/
+
+
+.information-right-botton{
+    height: 50%;
+    position: relative;
+}
+
+.information-right-botton button{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--Strongcyan);
+    
+}
+
+/*RULES THAT APLAY T0  SHORT CODE*/
+
+.information-text-separation{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+
+
+.information-tittle{
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+
+#generaldecoration{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--Lightgrayishcyan2);
+    height: 30px;
+    padding:0 10px;
+}
+
+
+#generaldecoration img{
+    height: 15px;
+}
+
+#generaldecoration:hover{
+    border: 1px solid var(--Verydarkcyan);
+}
+
+/*Attribution*/
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
