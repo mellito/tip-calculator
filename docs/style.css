@@ -248,3 +248,30 @@ input{
 /*Attribution*/
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+
+
+@media (max-width:950px){
+    .main-container{
+        height:100vh;
+        width: 100vw;
+    }   
+}
+
+@media (max-width:650px){
+    .container-information{
+        flex-direction: column;
+    }
+    .information-left{
+        width: 100%;
+    }
+    .information-rigth
+    {
+        width: 100%;
+    }
+
+    .information-rigth{
+        padding: 20px;
+        height: 100%;
+    
+    }
+}

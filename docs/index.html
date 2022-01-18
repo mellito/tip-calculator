@@ -16,88 +16,89 @@
 
  </head>
 <body>
-      <main class="main-container" id='maincontainer' >
+      
+        <form action="" class="main-container" id='maincontainer'>
 
-        <div class="container-logo"> 
-          <img src="/images/logo.svg" alt="">
-        </div>
-
-        <div class="container-information">
-
-          <section class="information-left">
-
-            <div class="information-left-top ">
-              <div class="information-text-separation">
-                <span class="information-tittle">Bill</span>
-                <label class="information-tittle " id="error-message">can`t be zero</label>
-              </div>
-
-              <span id="generaldecoration"><i><img src="/images/icon-dollar.svg"  alt=""> </i> <input type="text" name="" id="billamount" placeholder="0"></span>
-              
-            </div>
-
-            <div class="information-left-middle">
-
-              <span class="information-tittle">Select Tip %</span>
-
-              <section class="information-left-middle-grid">
-                <a id=discount5><span>5%</span> </a>
-                <a id=discount10> <span>10%</span> </a>
-                <a id=discount15> <span>15%</span> </a>
-                <a id=discount25> <span>25%</span> </a>
-                <a id=discount50> <span>50%</span> </a>
-                <input type="text" name="" id="discountCustom" placeholder="Custom">
-              </section>
-
-            </div>
-
-            <div class="information-left-botton ">
-              <div class='information-text-separation'>
-                <span class="information-tittle">Number of People</span>
-                <label class="information-tittle" id="error-message2">can`t be zero</label>
-              </div>
-              
-              <span id="generaldecoration" ><i><img src="/images/icon-person.svg" alt=""> </i> <input type="text" name="" id="amountpeople" placeholder="0"></span>
-            </div>
-
-          </section>
-
-          <section class="information-rigth">
-            <div class="information-right-top">
-
-              <div class="information-text-separation">
-                <span > 
-                  <p>Tip Amount</p> 
-                  <p>/ person</p> 
-                  
-                </span> 
-
-                <label for="" id="tip-person">$ 0.00</label>
-
-              </div>
-
-              <div class="information-text-separation">
-                <span > 
-                  <p>Total</p> 
-                  <p>/ person</p> 
-                  
-                </span> 
-
-                <label for="" id="total-top">$ 0.00</label>
+          <div class="container-logo"> 
+            <img src="/docs/images/logo.svg" alt="">
+          </div>
+  
+          <div class="container-information">
+  
+            <section class="information-left">
+  
+              <div class="information-left-top ">
+                <div class="information-text-separation">
+                  <span class="information-tittle">Bill</span>
+                  <label class="information-tittle " id="error-message">can`t be zero</label>
+                </div>
+  
+                <span id="generaldecoration"><i><img src="/docs/images/icon-dollar.svg"  alt=""> </i> <input type="text" name="" id="billamount" placeholder="0"></span>
                 
               </div>
-            </div>
+  
+              <div class="information-left-middle">
+  
+                <span class="information-tittle">Select Tip %</span>
+  
+                <section class="information-left-middle-grid">
+                  <a id=discount5><span>5%</span> </a>
+                  <a id=discount10> <span>10%</span> </a>
+                  <a id=discount15> <span>15%</span> </a>
+                  <a id=discount25> <span>25%</span> </a>
+                  <a id=discount50> <span>50%</span> </a>
+                  <input type="text" name="" id="discountCustom" placeholder="Custom">
+                </section>
+  
+              </div>
+  
+              <div class="information-left-botton ">
+                <div class='information-text-separation'>
+                  <span class="information-tittle">Number of People</span>
+                  <label class="information-tittle" id="error-message2">can`t be zero</label>
+                </div>
+                
+                <span id="generaldecoration" ><i><img src="/docs/images/icon-person.svg" alt=""> </i> <input type="text" name="" id="amountpeople" placeholder="0"></span>
+              </div>
+  
+            </section>
+  
+            <section class="information-rigth">
+              <div class="information-right-top">
+  
+                <div class="information-text-separation">
+                  <span > 
+                    <p>Tip Amount</p> 
+                    <p>/ person</p> 
+                    
+                  </span> 
+  
+                  <label for="" id="tip-person">$ 0.00</label>
+  
+                </div>
+  
+                <div class="information-text-separation">
+                  <span > 
+                    <p>Total</p> 
+                    <p>/ person</p> 
+                    
+                  </span> 
+  
+                  <label for="" id="total-top">$ 0.00</label>
+                  
+                </div>
+              </div>
+  
+              <div class="information-right-botton">
+                <button class="primary-button" id='reset-button'type="reset">RESET</button>
+  
+              </div>
+            </section>
+          </div>
 
-            <div class="information-right-botton">
-              <button class="primary-button" id='reset'type="reset">RESET</button>
+        </form>
 
-            </div>
-          </section>
-        </div>
 
-       
-
-      </main>
   
       <div class="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
@@ -113,7 +114,7 @@
         let discount25= document.getElementById('discount25');
         let discount50= document.getElementById('discount50');
         let discountcustom= document.getElementById('discountCustom');
-        let restbutton= document.getElementById('maincontainer');
+        let restbutton= document.getElementById('reset-button');
         
         
         const clickEvent =(discount) =>{
@@ -128,7 +129,7 @@
 
           if(validatorbill === false){
           document.getElementById('error-message').style.display='block';
-          document.getElementById('generaldecoration').style.border='red';
+        
           }
           else{
             document.getElementById('error-message').style.display='none';
@@ -182,7 +183,9 @@
        });
 
        restbutton.addEventListener('click', ()=>{
-        restbutton.reset();
+        document.getElementById('tip-person').innerHTML= "$ 0.00";
+        document.getElementById('total-top').innerHTML= "$ 0.00";
+ 
        });
        
       </script>
