@@ -260,18 +260,30 @@ input{
 @media (max-width:650px){
     .container-information{
         flex-direction: column;
+        padding: 10px;
     }
+
+    .information-left-top {
+        height: 30%;
+        
+    }
+
     .information-left{
         width: 100%;
     }
+
+    .information-left-middle{
+        height: 50%;
+    }  
     .information-rigth
     {
         width: 100%;
     }
+    
 
     .information-rigth{
         padding: 20px;
-        height: 100%;
+        height: 70%;
     
     }
 }
