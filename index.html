@@ -16,7 +16,7 @@
 
  </head>
 <body>
-      <main class="main-container">
+      <main class="main-container" id='maincontainer' >
 
         <div class="container-logo"> 
           <img src="/images/logo.svg" alt="">
@@ -29,10 +29,10 @@
             <div class="information-left-top ">
               <div class="information-text-separation">
                 <span class="information-tittle">Bill</span>
-                <label class="information-tittle">can`t be zero</label>
+                <label class="information-tittle " id="error-message">can`t be zero</label>
               </div>
 
-              <span id="generaldecoration"><i><img src="/images/icon-dollar.svg"  alt=""> </i> <input type="text" name="" id="" placeholder="0"></span>
+              <span id="generaldecoration"><i><img src="/images/icon-dollar.svg"  alt=""> </i> <input type="text" name="" id="billamount" placeholder="0"></span>
               
             </div>
 
@@ -41,12 +41,12 @@
               <span class="information-tittle">Select Tip %</span>
 
               <section class="information-left-middle-grid">
-                <a> <span>5%</span> </a>
-                <a> <span>10%</span> </a>
-                <a> <span>15%</span> </span>
-                <a> <span>25%</span> </a>
-                <a> <span>50%</span> </a>
-                <input type="text" name="" id="" placeholder="Custom">
+                <a id=discount5><span>5%</span> </a>
+                <a id=discount10> <span>10%</span> </a>
+                <a id=discount15> <span>15%</span> </a>
+                <a id=discount25> <span>25%</span> </a>
+                <a id=discount50> <span>50%</span> </a>
+                <input type="text" name="" id="discountCustom" placeholder="Custom">
               </section>
 
             </div>
@@ -54,10 +54,10 @@
             <div class="information-left-botton ">
               <div class='information-text-separation'>
                 <span class="information-tittle">Number of People</span>
-                <label class="information-tittle">can`t be zero</label>
+                <label class="information-tittle" id="error-message2">can`t be zero</label>
               </div>
               
-              <span id="generaldecoration" ><i><img src="/images/icon-person.svg" alt=""> </i> <input type="text" name="" id="" placeholder="0"></span>
+              <span id="generaldecoration" ><i><img src="/images/icon-person.svg" alt=""> </i> <input type="text" name="" id="amountpeople" placeholder="0"></span>
             </div>
 
           </section>
@@ -72,7 +72,7 @@
                   
                 </span> 
 
-                <label for="" id="tip-person">0</label>
+                <label for="" id="tip-person">$ 0.00</label>
 
               </div>
 
@@ -83,13 +83,13 @@
                   
                 </span> 
 
-                <label for="" id="total-top">0</label>
+                <label for="" id="total-top">$ 0.00</label>
                 
               </div>
             </div>
 
             <div class="information-right-botton">
-              <button class="primary-button">Reset</button>
+              <button class="primary-button" id='reset'type="reset">RESET</button>
 
             </div>
           </section>
@@ -101,8 +101,90 @@
   
       <div class="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-        Coded by <a href="#">Your Name Here</a>.
+        Coded by <a href="https://github.com/mellito">dayan manrique</a>.
       </div>
- 
+      
+      <script type="module">
+        import {calculateAmoutPerPerson,calculateAmountTotal} from '/index.js'
+        
+        let discount5= document.getElementById('discount5');
+        let discount10= document.getElementById('discount10');
+        let discount15= document.getElementById('discount15');
+        let discount25= document.getElementById('discount25');
+        let discount50= document.getElementById('discount50');
+        let discountcustom= document.getElementById('discountCustom');
+        let restbutton= document.getElementById('maincontainer');
+        
+        
+        const clickEvent =(discount) =>{
+          
+          let billamount=parseFloat(document.getElementById('billamount').value);
+          let amountpeople=parseInt(document.getElementById('amountpeople').value);
+        
+          const validatorbill = (billamount<=0) ?  false :  true;
+          const validatoramount= (amountpeople<=0) ?  false :  true;
+
+          if(Number.isInteger(billamount) &&  Number.isInteger(amountpeople) ){
+
+          if(validatorbill === false){
+          document.getElementById('error-message').style.display='block';
+          document.getElementById('generaldecoration').style.border='red';
+          }
+          else{
+            document.getElementById('error-message').style.display='none';
+          }
+          if(validatoramount === false){
+
+            document.getElementById('error-message2').style.display='block';
+          }
+          else{
+          document.getElementById('error-message2').style.display='none'; 
+          }
+          
+
+          let totalPerperson =parseFloat(calculateAmoutPerPerson(billamount,discount,amountpeople));
+          let totalAmount = calculateAmountTotal(billamount,totalPerperson,amountpeople);
+          
+          document.getElementById('tip-person').innerHTML= `$ ${totalPerperson}`
+          document.getElementById('total-top').innerHTML= `$ ${totalAmount}`
+          }
+
+          else{
+            alert('only numbers are valid');
+          }
+         
+
+        }
+        
+       discount5.addEventListener("click", ()=>{
+          clickEvent(5);
+       });
+
+       discount10.addEventListener("click", ()=>{
+          clickEvent(10);
+       });
+       
+       discount15.addEventListener("click", ()=>{
+          clickEvent(15);
+       });
+
+       discount25.addEventListener("click", ()=>{
+          clickEvent(25);
+       });
+
+       discount50.addEventListener("click", ()=>{
+          clickEvent(50);
+       });
+
+       discountcustom.addEventListener("keyup", ()=>{
+        let discountcustomLocal=parseInt(discountcustom.value);  
+          clickEvent(discountcustomLocal);
+       });
+
+       restbutton.addEventListener('click', ()=>{
+        restbutton.reset();
+       });
+       
+      </script>
 </body>
 </html>
